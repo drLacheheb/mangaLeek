@@ -1,0 +1,36 @@
+# Byte-compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# .env file for environment variables (if you use one)
+.env
+
+# Python egg files
+*.egg
+*.egg-info
+
+# Distribution / packaging files
+dist/
+build/
+*.tar.gz
+*.whl
