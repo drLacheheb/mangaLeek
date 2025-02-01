@@ -7,7 +7,7 @@ from manga_scraper.config import BASE_URL
 
 async def main():
     """scrape data with pagination and save it"""
-    page, browser = await launch_browser()
+    page, browser, playwright = await launch_browser()
     
     current_page_url = BASE_URL
     all_manga_data = []
@@ -17,10 +17,10 @@ async def main():
         manga_data = await scrape_manga_page(page, current_page_url)
         all_manga_data.extend(manga_data)
 
-        # get the next page URL from the pagination
+        # get the next page
         current_page_url = await get_next_page_url(page)
 
-        # if there is no next page, break the loop
+        # if there is no next page
         if not current_page_url:
             print("No more pages to scrape.")
             break
@@ -29,6 +29,7 @@ async def main():
     save_to_csv(all_manga_data)
 
     await browser.close()
+    await playwright.stop()
 
 
 asyncio.run(main())
